@@ -22,18 +22,6 @@ The following technologies are used in this project:
 - Middleware: Saga
 
 
-### Installation
-
-- Clone the repository to your local machine:
-```bash
-git clone https://github.com/nareshkumaralaria/book-inventory-management.git
-
-```
-- Navigate to the project directory:
-```bash
-cd book-inventory-management
-
-
 ## Screenshots
 
 Login Page

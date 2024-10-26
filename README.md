@@ -36,14 +36,22 @@ cd book-inventory-management
 
 ## Screenshots
 
-Home Page
-![HomePage](https://github.com/nareshkumaralaria/book-inventory-management/assets/57484597/a2a11661-ec76-4e9c-ac68-20ffd0986641)
+Login Page
+![Login](https://drive.google.com/file/d/1_BA1UnDJJzM9X6C6X7cM8BANBhJyBsmp/view?usp=sharing)
 
-Add Item To Inventory
-![Add Item To Inventory](https://github.com/nareshkumaralaria/book-inventory-management/assets/57484597/66ac5e96-1d0e-499a-9a91-e9690fa657cc)
+Main Page
+![Main Page](https://drive.google.com/file/d/1SVLZ4dAV3aiPgMh4LI6BB2fo43bIW0OT/view?usp=sharing)
 
-Adjust Stock
-![Adjust Stock](https://github.com/nareshkumaralaria/book-inventory-management/assets/57484597/f474d793-dd4c-4ba7-b612-64b5d0b5c558)
+Create stock Component
+![Dashboard](https://drive.google.com/file/d/19xPy4tRaAbgstt9nBG0HSDVm3FTJqETD/view?usp=sharing)
+
+Adjust Stock component
+![Dashboard](https://drive.google.com/file/d/1vTCXRzN10LSQ_hVcofP90g_72GG-PB26/view?usp=sharing)
+
+Delete Stock Component
+![Delete Stock](https://drive.google.com/file/d/1PpBTFjleaSsXr3G6CHGZufcFkwl40ffF/view?usp=sharing)
+
+
 
 [Watch the video on Google Drive](https://drive.google.com/file/d/1FVrCPKQrc5xisRaVhaZuSNxOxnRJ93H5/view?usp=sharing)
 

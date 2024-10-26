@@ -45,5 +45,5 @@ Add Item To Inventory
 Adjust Stock
 ![Adjust Stock](https://github.com/nareshkumaralaria/book-inventory-management/assets/57484597/f474d793-dd4c-4ba7-b612-64b5d0b5c558)
 
-[Watch the video on Google Drive]((https://drive.google.com/file/d/1FVrCPKQrc5xisRaVhaZuSNxOxnRJ93H5/view?usp=sharing)
+[Watch the video on Google Drive](https://drive.google.com/file/d/1FVrCPKQrc5xisRaVhaZuSNxOxnRJ93H5/view?usp=sharing)
 

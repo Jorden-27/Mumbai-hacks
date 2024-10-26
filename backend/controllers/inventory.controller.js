@@ -83,6 +83,8 @@ export const updateBookFromInventory = async (req, res) => {
         dataInstance.PurchasePrice = formValues.PurchasePrice
         dataInstance.InclusiveOfTax = formValues.InclusiveOfTax
         dataInstance.GST = formValues.GST
+        dataInstance.GST = formValues.GST
+        dataInstance.GST = formValues.GST
         dataInstance.updatedAt = new Date().toJSON().slice(0, 10)
 
         await dataInstance.save();

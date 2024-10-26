@@ -1,25 +1,19 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-// Sample franchise data
-const franchises = [
-  "McDonald's NYC Downtown",
-  "McDonald's Brooklyn Heights",
-  "McDonald's Queens Center",
-  "Subway Manhattan Central",
-  "Subway Times Square",
-  "KFC Brooklyn Main",
-  "KFC Staten Island",
-  "Domino's Manhattan West",
-  "Domino's East Village"
-];
+// Example array of franchises
+const franchises = ["Franchise A", "Franchise B", "Franchise C"];
 
 function Login() {
+  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const [password, setPassword] = useState('');
   const [showDropdown, setShowDropdown] = useState(false);
   const [filteredFranchises, setFilteredFranchises] = useState([]);
+  const [error, setError] = useState('');
 
   useEffect(() => {
+    // Filter franchises based on search term
     if (searchTerm) {
       const filtered = franchises.filter(franchise =>
         franchise.toLowerCase().includes(searchTerm.toLowerCase())
@@ -36,15 +30,40 @@ function Login() {
     setShowDropdown(false);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Login attempted with:', { franchise: searchTerm, password });
+    setError('');
+
+    try {
+      const response = await fetch('http://localhost:9002/api/franchise/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ franchiseName: searchTerm, password }),
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        setError(data.message || 'Login failed. Please try again.');
+        return;
+      }
+
+      const data = await response.json();
+      console.log('Login successful:', data);
+
+      // Use the ID from the response to navigate to the correct route
+      navigate(`/${data.franchiseId}/inventory`);
+    } catch (error) {
+      setError('An error occurred. Please try again later.');
+      console.error('Error during login:', error);
+    }
   };
 
   return (
     <div style={{ minHeight: '100vh', background: 'linear-gradient(to bottom right, #ebf4ff, #c3dafe)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '16px' }}>
       <div style={{ width: '100%', maxWidth: '400px' }}>
-        <div style={{ backgroundColor: 'white', borderRadius: '1rem', boxShadow: '0 4px 12px rgba(0,0,0,0.1)', padding: '32px', spaceY: '24px' }}>
+        <div style={{ backgroundColor: 'white', borderRadius: '1rem', boxShadow: '0 4px 12px rgba(0,0,0,0.1)', padding: '32px' }}>
           <div style={{ textAlign: 'center', marginBottom: '32px' }}>
             <div style={{ backgroundColor: '#ebf4ff', width: '4rem', height: '4rem', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto', marginBottom: '16px' }}>
               <i className="fas fa-building" style={{ fontSize: '2rem', color: '#5a67d8' }}></i>
@@ -53,7 +72,10 @@ function Login() {
             <p style={{ color: '#718096', marginTop: '8px' }}>Welcome back, please login to your franchise portal</p>
           </div>
 
-          <form onSubmit={handleSubmit} style={{ spaceY: '24px' }}>
+          {/* Error message display */}
+          {error && <p style={{ color: 'red', textAlign: 'center' }}>{error}</p>}
+
+          <form onSubmit={handleSubmit}>
             <div style={{ marginBottom: '16px' }}>
               <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: '500', color: '#4a5568', marginBottom: '8px' }}>Franchise Name</label>
               <input
@@ -89,43 +111,10 @@ function Login() {
               />
             </div>
 
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
-              <div style={{ display: 'flex', alignItems: 'center' }}>
-                <input type="checkbox" style={{ height: '1rem', width: '1rem', color: '#5a67d8', borderRadius: '0.25rem' }} />
-                <label style={{ marginLeft: '8px', fontSize: '0.875rem', color: '#4a5568' }}>Remember me</label>
-              </div>
-              <div style={{ fontSize: '0.875rem' }}>
-                <a href="#" style={{ fontWeight: '500', color: '#5a67d8', textDecoration: 'none' }}>Forgot password?</a>
-              </div>
-            </div>
-
-            <button
-              type="submit"
-              style={{
-                width: '100%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                padding: '12px',
-                border: 'none',
-                borderRadius: '0.5rem',
-                fontSize: '0.875rem',
-                fontWeight: '500',
-                color: 'white',
-                backgroundColor: '#5a67d8',
-                cursor: 'pointer',
-                transition: 'background-color 0.3s'
-              }}
-            >
-              Sign in to Dashboard
-              <i className="fas fa-arrow-right" style={{ marginLeft: '8px' }}></i>
+            <button type="submit" style={{ width: '100%', padding: '12px', borderRadius: '0.5rem', backgroundColor: '#5a67d8', color: 'white', fontWeight: 'bold', border: 'none', cursor: 'pointer', transition: 'background-color 0.3s' }}>
+              Login
             </button>
           </form>
-
-          <div style={{ marginTop: '24px', textAlign: 'center', fontSize: '0.875rem' }}>
-            <span style={{ color: '#718096' }}>Need help? </span>
-            <a href="#" style={{ color: '#5a67d8', textDecoration: 'none', fontWeight: '500' }}>Contact Support</a>
-          </div>
         </div>
       </div>
     </div>

@@ -4,11 +4,14 @@ import { Header, Options, Tables } from '../components/index.js';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllBooksFromInventory } from '../redux/actions/Inventory.action.js';
 import { Box, Skeleton } from '@mui/material';
+import { useParams } from 'react-router-dom';
 
 function Inventory() {
   const dispatch = useDispatch();
   const [selected, setSelected] = useState([]);
   const [showLowStock, setShowLowStock] = useState(false);
+  const {id}=useParams();
+  console.log(id)
 
   // Retrieve data from the Redux store
   const inventoryData = useSelector(state => state.getAllBooksFromInventoryReducer);

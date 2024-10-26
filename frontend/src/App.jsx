@@ -12,6 +12,7 @@ function App() {
         
         {/* Route to inventory page */}
         <Route path="/inventory" element={<Inventory />} />
+        <Route path="/:id/inventory" element={<Inventory />} />
         
         {/* Optional: 404 Not Found route */}
         <Route path="*" element={<div>404 - Page Not Found</div>} />

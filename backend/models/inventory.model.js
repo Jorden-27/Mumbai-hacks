@@ -1,10 +1,12 @@
 import mongoose from "mongoose";
+import franchises from "./User.js";
 
 // Getting the current local date in JSON format
 const localDate = new Date().toJSON().slice(0, 10);
 
 // Creating the inventory schema
 const inventorySchemas = new mongoose.Schema({
+    date:{type:Date, default: localDate},
     ItemName: { type: String, required: true },
     Category: { type: String, required: true },
     ItemCode: { type: String, required: true },
@@ -19,6 +21,11 @@ const inventorySchemas = new mongoose.Schema({
     GST: { type: String, required: true },
     createdAt: { type: Date, default: localDate },
     updatedAt: { type: Date, default: localDate },
+    dailySales: [{
+        date: { type: Date, required: true },
+        quantitySold: { type: Number, required: true },
+    }],
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'Franchises' },
 });
 
 // Creating the inventory model based on the schema

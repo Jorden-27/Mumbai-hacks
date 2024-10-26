@@ -16,7 +16,7 @@ const Header = () => {
                 <Divider />
                 <Box sx={{ bgcolor: '#fff', width: "fit-content", height: '48px', display: 'flex', alignItems: 'center', justifyContent: "space-between", borderBottom: "1px solid rgba(0,0,0,0.12)" }}>
                     <Typography variant="h6" gutterBottom sx={{ mb: '0', cursor: "pointer" }}>
-                        Books List
+                        Product List
                     </Typography>
                 </Box>
             </Container>

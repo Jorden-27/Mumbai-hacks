@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 // Example array of franchises
-const franchises = ["Franchise A", "Franchise B", "Franchise C"];
+const franchises = ["Andheri", "Borivali", "Malad", "Airoli"];
 
 function Login() {
   const navigate = useNavigate();
@@ -53,7 +53,7 @@ function Login() {
       console.log('Login successful:', data);
 
       // Use the ID from the response to navigate to the correct route
-      navigate(`/${data.franchiseId}/inventory`);
+      navigate(`/inventory`);
     } catch (error) {
       setError('An error occurred. Please try again later.');
       console.error('Error during login:', error);

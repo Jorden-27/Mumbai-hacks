@@ -9,7 +9,7 @@ const Header = () => {
             <Container maxWidth="xl">
                 <Box sx={{ bgcolor: '#fff', height: '64px', display: 'flex', alignItems: 'center', justifyContent: "space-between" }}>
                     <Typography variant="h6" gutterBottom sx={{ mb: '0', cursor: "pointer" }}>
-                        Solar Ladder
+                        Inventory management
                     </Typography>
                     <Button variant="outlined">Logout</Button>
                 </Box>

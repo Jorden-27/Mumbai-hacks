@@ -26,7 +26,7 @@ const HelperModalAdd = ({ open, handleClose }) => {
 
     // Initial form values
     const initialFormValues = {
-        ItemName: "", Category: "", ItemCode: "", Description: "", Unit: "", StockQuantity: "", AsOfDate: new Date().toJSON().slice(0, 10), LowStockWarning: false,
+        ItemName: "", Category: "", ItemCode: "", Description: "", Unit: "", StockQuantity: "", stockSold: new Date().toJSON().slice(0, 10), LowStockWarning: false,
         LowStockUnit: "", PurchasePrice: "", InclusiveOfTax: false, GST: ""
     }
 
@@ -131,10 +131,9 @@ const HelperModalAdd = ({ open, handleClose }) => {
                                             helperText={!formError.Category ? null : formError.Category}
                                         >
                                             <MenuItem value="" style={{ fontStyle: "italic" }}>None</MenuItem>
-                                            <MenuItem value="Panel">Panel</MenuItem>
-                                            <MenuItem value="Inverter">Inverter</MenuItem>
-                                            <MenuItem value="Wire">Wire</MenuItem>
-                                            <MenuItem value="MC4 Connector">MC4 Connector</MenuItem>
+                                            <MenuItem value="Panel">Food</MenuItem>
+                                            <MenuItem value="Inverter">Drinks</MenuItem>
+                                            <MenuItem value="Wire">Groceries</MenuItem>
                                             <MenuItem value="Other">Other</MenuItem>
                                         </TextField>
                                         <AddIcon sx={{ cursor: "pointer" }} />

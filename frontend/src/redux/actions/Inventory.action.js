@@ -4,7 +4,7 @@ import * as type from '../types';
 export function addBookToInventory(formValues) {
     return {
         type: type.ADD_BOOK_TO_INVENTORY_REQUESTED,
-        payload: formValues,
+        payload: formValues
     }
 }
 
